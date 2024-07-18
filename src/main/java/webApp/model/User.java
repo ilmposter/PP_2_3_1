@@ -3,7 +3,7 @@ package webApp.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UsersMVC")
+@Table(name = "UsersMVC2")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,15 +15,14 @@ public class User {
 
     private int age;
 
+
     public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
 
-    public User() {
-
-    }
+    public User() {}
 
     public String getFirstName() {
         return firstName;
@@ -47,5 +46,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
