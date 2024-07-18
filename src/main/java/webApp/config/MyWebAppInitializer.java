@@ -1,9 +1,21 @@
 package webApp.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import webApp.configDBHibernate.AppConfigDB;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
+
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        return new Filter[] { filter };
+    }
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -25,4 +37,5 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
                 "/"
         };
     }
+
 }
