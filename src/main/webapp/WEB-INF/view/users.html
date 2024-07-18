@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .update-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>Users</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.id}">1</td>
+        <td th:utext="${user.firstName}">John</td>
+        <td th:utext="${user.lastName}">Doe</td>
+        <td th:utext="${user.age}">25</td>
+        <td>
+            <form action="/PP2_3_1/delete" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="submit" value="Delete">
+            </form>
+            <form action="/PP2_3_1/update" method="post" class="update-form">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="text" name="firstName" th:uvalue="${user.firstName}" required placeholder="First Name">
+                <input type="text" name="lastName" th:uvalue="${user.lastName}" required placeholder="Last Name">
+                <input type="number" name="age" th:uvalue="${user.age}" required placeholder="Age">
+                <input type="submit" value="Update">
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="/PP2_3_1/register">Register new user</a>
+</body>
+</html>

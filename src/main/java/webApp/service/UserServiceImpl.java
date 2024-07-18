@@ -1,12 +1,18 @@
 package webApp.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import webApp.dao.UserDao;
 import webApp.model.User;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserDao userDao;
     @Override
     public void add(User user) {
@@ -26,5 +32,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> listUsers() {
         return userDao.listUsers();
+    }
+
+    @Override
+    public User findById(long id) {
+        return userDao.findById(id);
     }
 }

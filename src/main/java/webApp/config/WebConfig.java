@@ -19,13 +19,13 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @ComponentScan(basePackages = "webApp")
 public class WebConfig implements WebMvcConfigurer {
 
-    public static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
+//    public static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
     private final ApplicationContext applicationContext;
 
     public WebConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
-        logger.info("WebConfig initialized");
+//        logger.info("WebConfig initialized");
     }
 
     @Bean
@@ -51,6 +51,6 @@ public class WebConfig implements WebMvcConfigurer {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
-        logger.info("View Resolver initialized");
+//        logger.info("View Resolver initialized");
     }
 }

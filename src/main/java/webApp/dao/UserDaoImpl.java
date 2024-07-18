@@ -1,6 +1,7 @@
 package webApp.dao;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import webApp.model.User;
 
 import javax.persistence.EntityManager;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 
 @Repository
+@Transactional
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
@@ -37,5 +39,10 @@ public class UserDaoImpl implements UserDao {
     public List<User> listUsers() {
         return entityManager.createQuery("SELECT u FROM User u", User.class)
                 .getResultList();
+    }
+
+    @Override
+    public User findById(long id) {
+        return entityManager.find(User.class, id);
     }
 }

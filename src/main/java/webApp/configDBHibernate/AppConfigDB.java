@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import webApp.model.User;
 
 import javax.sql.DataSource;
@@ -16,7 +17,8 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:db.properties")
-@ComponentScan("webApp")
+@EnableTransactionManagement
+@ComponentScan(basePackages = "webApp")
 public class AppConfigDB {
 
     @Autowired
@@ -38,6 +40,7 @@ public class AppConfigDB {
         factoryBean.setDataSource(getDataSource());
 
         Properties props = new Properties();
+        props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
