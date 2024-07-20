@@ -5,7 +5,6 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import webApp.configDBHibernate.AppConfigDB;
 
 import javax.servlet.Filter;
-import javax.servlet.FilterRegistration;
 
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -14,7 +13,9 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);
-        return new Filter[] { filter };
+        return new Filter[]{
+                filter
+        };
     }
 
     @Override
@@ -33,7 +34,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {
+        return new String[]{
                 "/"
         };
     }

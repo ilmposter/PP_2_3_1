@@ -22,7 +22,8 @@ public class User {
         this.age = age;
     }
 
-    public User() {}
+    public User() {
+    }
 
     public String getFirstName() {
         return firstName;
