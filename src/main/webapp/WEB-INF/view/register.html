@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Register User</title>
+    <meta charset="UTF-8">
+    <title>Register User</title>
 </head>
 <body>
-<h2>Register User</h2>
+<h2>Регистрация пользователя</h2>
 <form action="/PP2_3_1/register" method="post">
-  <label for="firstName">First Name:</label>
-  <input type="text" id="firstName" name="firstName" required>
-  <br>
-  <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" required>
-  <br>
-  <label for="age">Age:</label>
-  <input type="number" id="age" name="age" required>
-  <br>
-  <input type="submit" value="Register">
+    <label for="firstName">Имя:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    <br>
+    <label for="lastName">Фамилия:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    <br>
+    <label for="age">Возраст:</label>
+    <input type="number" id="age" name="age" required>
+    <br>
+    <input type="submit" value="Зарегистрироваться">
 </form>
-<a href="/PP2_3_1/users">Back to Users</a>
+<a href="/PP2_3_1/users">Список пользователей</a>
 </body>
 </html>

@@ -5,8 +5,15 @@
     <title>Registration Success</title>
 </head>
 <body>
-<h2>Registration Successful</h2>
-<p>User ${firstName} ${lastName}, age ${age}, has been registered successfully.</p>
-<a href="/PP2_3_1/register">Register another user</a>
+<h2>Вы зарегистрировали нового пользователя!</h2>
+<form action="/PP2_3_1/registration-success" method="get">
+    <p>Пользователь <span th:text="${firstName}">First Name</span>
+        <span th:text="${lastName}">Last Name</span>,
+        возраст <span th:text="${age}">Age</span>,
+        успешно зарегистрирован.</p>
+</form>
+<a href="/PP2_3_1/register">Зарегистрировать еще одного пользователя<br></a>
+<br>
+<a href="/PP2_3_1/users">Список пользователей</a>
 </body>
 </html>
